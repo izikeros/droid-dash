@@ -1,5 +1,7 @@
 """GitHub-style activity heatmap widget."""
 
+from __future__ import annotations
+
 from datetime import date, timedelta
 
 from rich.console import RenderableType

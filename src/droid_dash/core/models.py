@@ -1,5 +1,7 @@
 """Data models for Factory.ai session analytics."""
 
+from __future__ import annotations
+
 from dataclasses import dataclass, field
 from datetime import datetime
 

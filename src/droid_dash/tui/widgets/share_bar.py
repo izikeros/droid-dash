@@ -1,5 +1,7 @@
 """Share bar chart widget for showing distribution between groups."""
 
+from __future__ import annotations
+
 from rich.console import RenderableType
 from rich.panel import Panel
 from rich.table import Table
