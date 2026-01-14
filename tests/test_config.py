@@ -3,7 +3,7 @@
 import tempfile
 from pathlib import Path
 
-from factory_dashboard.core.config import (
+from droid_dash.core.config import (
     Config,
     DisplayConfig,
     PricingConfig,

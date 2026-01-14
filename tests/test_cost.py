@@ -2,15 +2,15 @@
 
 import pytest
 
-from factory_dashboard.core.config import Config, PricingConfig
-from factory_dashboard.core.cost import (
+from droid_dash.core.config import Config, PricingConfig
+from droid_dash.core.cost import (
     DEFAULT_PRICING,
     MODEL_PRICING,
     CostEstimator,
     ModelPricing,
     format_cost,
 )
-from factory_dashboard.core.models import TokenUsage
+from droid_dash.core.models import TokenUsage
 
 
 class TestModelPricing:

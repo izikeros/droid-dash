@@ -56,10 +56,10 @@ Before submitting a PR, ensure your code passes all checks:
 ruff check src/
 
 # Run type checker
-mypy src/factory_dashboard --ignore-missing-imports
+mypy src/droid_dash --ignore-missing-imports
 
 # Run tests with coverage
-pytest tests/ -v --cov=factory_dashboard
+pytest tests/ -v --cov=droid_dash
 
 # Format code (if needed)
 ruff format src/ tests/
@@ -96,7 +96,7 @@ PYTHONPATH=src pytest tests/test_tui/test_snapshots.py --snapshot-update
 
 #### Coverage
 ```bash
-PYTHONPATH=src pytest tests/ --cov=factory_dashboard --cov-report=html
+PYTHONPATH=src pytest tests/ --cov=droid_dash --cov-report=html
 ```
 
 ## Making Changes
@@ -139,7 +139,7 @@ docs: update installation instructions
 
 ```
 factory-dashboard/
-├── src/factory_dashboard/
+├── src/droid_dash/
 │   ├── core/           # Backend logic (parser, aggregator, cost)
 │   │   ├── models.py   # Data models
 │   │   ├── parser.py   # Session file parser
@@ -159,14 +159,14 @@ factory-dashboard/
 
 ### Adding a New Widget
 
-1. Create the widget in `src/factory_dashboard/tui/widgets/`
+1. Create the widget in `src/droid_dash/tui/widgets/`
 2. Export it from `widgets/__init__.py`
 3. Add tests if the widget has complex logic
 4. Update the app to use the widget
 
 ### Adding a New CLI Command
 
-1. Add the command in `src/factory_dashboard/cli.py`
+1. Add the command in `src/droid_dash/cli.py`
 2. Follow the existing Click command patterns
 3. Add help text and examples
 

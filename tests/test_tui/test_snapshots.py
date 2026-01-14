@@ -12,7 +12,7 @@ import pytest
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
-from factory_dashboard.tui.app import FactoryDashboardApp
+from droid_dash.tui.app import FactoryDashboardApp
 
 # Path to test sessions
 TEST_SESSIONS_DIR = Path(__file__).parent.parent.parent / "test_sessions"

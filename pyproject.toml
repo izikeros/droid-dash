@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "factory-dashboard"
+name = "droid-dash"
 version = "0.1.0"
 description = "TUI dashboard for Factory.ai Droid session analytics - track tokens, costs, and explore sessions"
 readme = "README.md"
@@ -49,17 +49,17 @@ dependencies = [
 ]
 
 [project.scripts]
-factory-dashboard = "factory_dashboard.cli:main"
+droid-dash = "droid_dash.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/izikeros/factory-dashboard"
-Documentation = "https://izikeros.github.io/factory-dashboard"
-Repository = "https://github.com/izikeros/factory-dashboard"
-Issues = "https://github.com/izikeros/factory-dashboard/issues"
-Changelog = "https://github.com/izikeros/factory-dashboard/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/izikeros/droid-dash"
+Documentation = "https://izikeros.github.io/droid-dash"
+Repository = "https://github.com/izikeros/droid-dash"
+Issues = "https://github.com/izikeros/droid-dash/issues"
+Changelog = "https://github.com/izikeros/droid-dash/blob/main/CHANGELOG.md"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/factory_dashboard"]
+packages = ["src/droid_dash"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -4,8 +4,8 @@ import json
 import tempfile
 from pathlib import Path
 
-from factory_dashboard.core.models import TokenUsage
-from factory_dashboard.core.parser import SessionParser
+from droid_dash.core.models import TokenUsage
+from droid_dash.core.parser import SessionParser
 
 
 class TestSessionParser:

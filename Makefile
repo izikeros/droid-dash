@@ -6,7 +6,7 @@ COLOR_GREEN=\033[1;32m
 
 SRC_DIR = src
 TEST_DIR = tests
-PACKAGE = factory_dashboard
+PACKAGE = droid_dash
 VENV = .venv/bin
 
 .PHONY: help install create-venv install-deps clean test coverage coverage-show format lint lint-stats fix type bandit changelog docs docs-serve build run

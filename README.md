@@ -232,7 +232,7 @@ sessions_dir = "~/.factory/sessions"
 The project separates the core backend logic from the TUI frontend, enabling future extensions (e.g., web UI).
 
 ```
-src/factory_dashboard/
+src/droid_dash/
 ├── core/                  # Backend (reusable)
 │   ├── models.py          # Data models (Session, Project, TokenUsage, UserPrompt)
 │   ├── parser.py          # Session file parser (.settings.json, .jsonl)
@@ -285,8 +285,8 @@ Cost estimation supports Claude models with configurable pricing:
 
 ```bash
 cd factory_ai_dashboard
-PYTHONPATH=src python3 -m factory_dashboard.cli stats
-PYTHONPATH=src python3 -m factory_dashboard.cli
+PYTHONPATH=src python3 -m droid_dash.cli stats
+PYTHONPATH=src python3 -m droid_dash.cli
 ```
 
 ### Generating Test Data
