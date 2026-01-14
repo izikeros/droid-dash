@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "8db73415-f9aa-4292-919e-864d0d1fcb2d", "title": "Untitled Session", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/infra"}
+{"type": "message", "id": "5dc98631-6335-480e-a8e0-b36a1247628d", "timestamp": "2025-12-31T05:01:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Untitled Session"}]}}

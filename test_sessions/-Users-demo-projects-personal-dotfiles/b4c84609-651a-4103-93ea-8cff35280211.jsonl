@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "b4c84609-651a-4103-93ea-8cff35280211", "title": "Fix CSS layout issues on mobile", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/personal/dotfiles"}
+{"type": "message", "id": "dfa4c02a-ee6f-4146-8dd9-903e8908d737", "timestamp": "2025-12-09T18:24:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Fix CSS layout issues on mobile"}]}}

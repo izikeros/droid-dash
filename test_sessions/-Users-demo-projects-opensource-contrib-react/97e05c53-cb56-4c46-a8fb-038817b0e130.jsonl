@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "97e05c53-cb56-4c46-a8fb-038817b0e130", "title": "New Session", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/opensource/contrib-react"}
+{"type": "message", "id": "abe65b9f-9d9b-41a8-a971-d439c09c3581", "timestamp": "2025-10-17T23:06:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "New Session"}]}}

@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "ac369ce7-bf0c-4d27-8cb0-00b6135fecb2", "title": "Untitled Session", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/personal/side-project"}
+{"type": "message", "id": "f3eba110-b317-46c0-bf0f-f85dba38b091", "timestamp": "2025-11-09T21:40:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Untitled Session"}]}}

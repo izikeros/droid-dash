@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "4454a49a-f7e0-460a-be2f-a72683f7a28d", "title": "Document deployment process", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/personal/notes"}
+{"type": "message", "id": "e89c6c0c-877d-4ff8-a04c-00e2259016b6", "timestamp": "2025-11-15T06:59:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Document deployment process"}]}}

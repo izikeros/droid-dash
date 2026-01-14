@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "4048b761-c72c-4349-9909-1abb56735ece", "title": "New Session", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/ml-models"}
+{"type": "message", "id": "85edb9f1-a345-4460-b396-bb8a6835df9e", "timestamp": "2025-11-08T20:30:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "New Session"}]}}

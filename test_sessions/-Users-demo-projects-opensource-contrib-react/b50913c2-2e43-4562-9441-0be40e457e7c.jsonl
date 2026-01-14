@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "b50913c2-2e43-4562-9441-0be40e457e7c", "title": "Profile memory usage", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/opensource/contrib-react"}
+{"type": "message", "id": "b0368bad-32e8-4cef-98ba-7f242c2a9075", "timestamp": "2025-11-28T20:27:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Profile memory usage"}]}}

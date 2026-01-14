@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "728dd532-713a-47e4-a249-5f2333fb1eb3", "title": "Set up data validation", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/frontend"}
+{"type": "message", "id": "c83b20c3-ac3c-4dd7-b7b7-bffc4ee254ee", "timestamp": "2025-11-22T01:45:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Set up data validation"}]}}

@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "41f346af-5250-455a-82ae-efe5804a8a96", "title": "Add performance benchmarks", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/opensource/cli-tool"}
+{"type": "message", "id": "7b2b0451-55c6-4d35-934d-59bcc0e8c9cc", "timestamp": "2025-12-12T16:14:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Add performance benchmarks"}]}}

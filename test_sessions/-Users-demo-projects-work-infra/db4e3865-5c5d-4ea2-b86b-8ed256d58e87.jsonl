@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "db4e3865-5c5d-4ea2-b86b-8ed256d58e87", "title": "Profile memory usage", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/infra"}
+{"type": "message", "id": "d545692c-57ba-440b-83c5-c307d0423613", "timestamp": "2025-10-27T11:47:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Profile memory usage"}]}}

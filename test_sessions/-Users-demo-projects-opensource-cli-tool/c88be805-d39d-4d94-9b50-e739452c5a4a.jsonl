@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "c88be805-d39d-4d94-9b50-e739452c5a4a", "title": "Implement search with filters", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/opensource/cli-tool"}
+{"type": "message", "id": "a4ccda0f-c0de-41ae-ade4-4a1a42ba50e3", "timestamp": "2026-01-01T13:07:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Implement search with filters"}]}}

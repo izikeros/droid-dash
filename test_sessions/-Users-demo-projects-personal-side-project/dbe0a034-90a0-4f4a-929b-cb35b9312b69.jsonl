@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "dbe0a034-90a0-4f4a-929b-cb35b9312b69", "title": "Migrate from REST to GraphQL", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/personal/side-project"}
+{"type": "message", "id": "a913c8ef-0ac0-48cf-a94e-87a41585ed41", "timestamp": "2025-10-19T16:10:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Migrate from REST to GraphQL"}]}}

@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "fe446a13-2201-4b0a-bff8-09dcdcfe548b", "title": "New Session", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/personal/dotfiles"}
+{"type": "message", "id": "0c256b64-a6e7-4a6e-8d87-fa443cc31a4f", "timestamp": "2025-11-12T06:31:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "New Session"}]}}

@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "7e272954-f3e7-4c85-87d4-2476dbd6d549", "title": "Resolve CORS issues with API gateway", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/data-pipeline"}
+{"type": "message", "id": "f20a93b3-5e38-42dc-864e-6b4146027e66", "timestamp": "2025-12-11T13:40:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Resolve CORS issues with API gateway"}]}}

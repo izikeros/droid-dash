@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "430b19c6-7bc3-47b7-a863-c830d7f41c85", "title": "Analyze performance bottlenecks", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/opensource/python-lib"}
+{"type": "message", "id": "018469ea-eba7-438b-8464-1739180de00e", "timestamp": "2025-11-29T03:36:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Analyze performance bottlenecks"}]}}

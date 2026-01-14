@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "27a59855-b34c-48ed-96a6-147d05ab035d", "title": "Debug failing CI pipeline", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/opensource/python-lib"}
+{"type": "message", "id": "be38cba8-f250-4a81-be42-a7db834a1289", "timestamp": "2025-10-24T20:59:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Debug failing CI pipeline"}]}}

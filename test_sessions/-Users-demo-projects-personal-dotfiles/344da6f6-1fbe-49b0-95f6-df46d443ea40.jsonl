@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "344da6f6-1fbe-49b0-95f6-df46d443ea40", "title": "Migrate to TypeScript", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/personal/dotfiles"}
+{"type": "message", "id": "c4c65a10-2ae4-4710-a007-c75bc4bbe1e0", "timestamp": "2025-11-02T00:51:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Migrate to TypeScript"}]}}

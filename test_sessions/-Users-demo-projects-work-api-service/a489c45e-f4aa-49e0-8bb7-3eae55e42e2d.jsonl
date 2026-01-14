@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "a489c45e-f4aa-49e0-8bb7-3eae55e42e2d", "title": "Set up staging environment", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/api-service"}
+{"type": "message", "id": "93890546-63d7-4d2b-a8be-f756047c76b6", "timestamp": "2025-11-24T06:49:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Set up staging environment"}]}}

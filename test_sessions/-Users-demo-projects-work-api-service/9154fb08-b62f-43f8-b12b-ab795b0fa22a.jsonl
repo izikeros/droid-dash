@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "9154fb08-b62f-43f8-b12b-ab795b0fa22a", "title": "Implement search with filters", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/api-service"}
+{"type": "message", "id": "0965940d-32e5-4bf9-b43a-69c12a59c44d", "timestamp": "2025-11-08T07:00:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Implement search with filters"}]}}

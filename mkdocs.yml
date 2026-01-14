@@ -1,0 +1,70 @@
+site_name: Factory Dashboard
+site_description: TUI dashboard for Factory.ai Droid session analytics
+site_url: https://izikeros.github.io/factory-dashboard
+repo_url: https://github.com/izikeros/factory-dashboard
+repo_name: izikeros/factory-dashboard
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: blue
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: blue
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: true
+            show_root_heading: true
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - tables
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: installation.md
+      - Quick Start: quickstart.md
+  - User Guide:
+      - TUI Dashboard: usage.md
+      - CLI Commands: cli.md
+      - Configuration: configuration.md
+  - Reference:
+      - API: api.md
+      - Changelog: changelog.md
+  - Contributing: contributing.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/izikeros/factory-dashboard
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/factory-dashboard/

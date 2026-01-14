@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "890b6fde-e2aa-4675-82c2-901f396e63d4", "title": "New Session", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/personal/blog"}
+{"type": "message", "id": "5ab032c7-7b57-4403-9063-5eb3cba0a7af", "timestamp": "2025-12-06T17:59:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "New Session"}]}}

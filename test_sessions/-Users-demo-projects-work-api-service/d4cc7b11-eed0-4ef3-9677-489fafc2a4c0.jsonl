@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "d4cc7b11-eed0-4ef3-9677-489fafc2a4c0", "title": "Add unit tests for user service", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/api-service"}
+{"type": "message", "id": "64f508d3-b407-4eb1-b325-095fe0088447", "timestamp": "2025-11-10T09:12:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Add unit tests for user service"}]}}

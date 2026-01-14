@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "b2876c19-d76c-4b7e-9cd7-4041780f65db", "title": "Add email notification system", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/infra"}
+{"type": "message", "id": "4ef466b0-6598-487e-a6a4-fe515fef9e08", "timestamp": "2026-01-06T21:57:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Add email notification system"}]}}

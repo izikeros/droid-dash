@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "73abc16f-d9fd-4b88-b5e4-a2b160c2f6e1", "title": "Debug WebSocket disconnection problem", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/data-pipeline"}
+{"type": "message", "id": "d4c5c91c-5c2f-442f-918b-4e00753bf127", "timestamp": "2025-11-13T12:31:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Debug WebSocket disconnection problem"}]}}

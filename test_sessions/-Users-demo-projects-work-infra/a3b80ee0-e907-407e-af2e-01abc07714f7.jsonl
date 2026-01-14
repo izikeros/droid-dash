@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "a3b80ee0-e907-407e-af2e-01abc07714f7", "title": "Set up CI/CD pipeline", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/infra"}
+{"type": "message", "id": "1b159f4d-d9cb-4d84-9b84-29a08b6a0250", "timestamp": "2025-11-15T23:58:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Set up CI/CD pipeline"}]}}

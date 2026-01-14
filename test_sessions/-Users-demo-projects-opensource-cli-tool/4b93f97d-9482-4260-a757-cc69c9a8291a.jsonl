@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "4b93f97d-9482-4260-a757-cc69c9a8291a", "title": "Write integration tests for API", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/opensource/cli-tool"}
+{"type": "message", "id": "b292ce30-1ac8-419e-a9ee-a7259ec42621", "timestamp": "2025-11-08T09:29:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Write integration tests for API"}]}}

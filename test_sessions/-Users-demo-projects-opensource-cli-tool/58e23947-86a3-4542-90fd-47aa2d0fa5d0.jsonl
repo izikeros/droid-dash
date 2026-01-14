@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "58e23947-86a3-4542-90fd-47aa2d0fa5d0", "title": "Optimize database queries", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/opensource/cli-tool"}
+{"type": "message", "id": "07546642-4c4f-4c76-82cb-f279767a63bf", "timestamp": "2025-11-15T12:36:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Optimize database queries"}]}}

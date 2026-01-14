@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "d18e5f86-e82c-40b2-a3e1-6bda6b21ff48", "title": "Refactor state management", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/personal/blog"}
+{"type": "message", "id": "a218f755-c65b-4550-a93f-c75b96fe4ea0", "timestamp": "2025-11-20T05:35:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Refactor state management"}]}}

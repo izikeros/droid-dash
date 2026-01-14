@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "78986fa4-fa45-4e87-aed3-4a5c322336d2", "title": "Add snapshot tests for components", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/api-service"}
+{"type": "message", "id": "5b37541d-cbe3-4cd0-bb53-59dcf9d7247b", "timestamp": "2025-12-07T23:25:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Add snapshot tests for components"}]}}

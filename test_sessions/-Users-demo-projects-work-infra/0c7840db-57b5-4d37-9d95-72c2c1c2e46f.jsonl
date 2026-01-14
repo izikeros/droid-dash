@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "0c7840db-57b5-4d37-9d95-72c2c1c2e46f", "title": "Create test fixtures", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/infra"}
+{"type": "message", "id": "15d37c83-7608-4a5b-8663-2cd86d8cf579", "timestamp": "2025-11-26T01:38:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Create test fixtures"}]}}

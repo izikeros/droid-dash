@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "e938ccb9-14e5-4a9d-b023-1f7c6bd3c0fd", "title": "Set up CI/CD pipeline", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/opensource/contrib-react"}
+{"type": "message", "id": "0ac8cac0-2f7d-4034-a40e-9138f8ed92b3", "timestamp": "2025-12-31T09:18:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Set up CI/CD pipeline"}]}}

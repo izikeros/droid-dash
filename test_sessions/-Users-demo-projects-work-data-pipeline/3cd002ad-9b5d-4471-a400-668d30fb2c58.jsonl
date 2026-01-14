@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "3cd002ad-9b5d-4471-a400-668d30fb2c58", "title": "Refactor database connection pooling", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/data-pipeline"}
+{"type": "message", "id": "12f2e255-b248-4aca-90cf-bf621ba43677", "timestamp": "2025-10-17T11:11:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Refactor database connection pooling"}]}}

@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "84e7a5ff-b493-4892-8f36-b2fdd94f4f56", "title": "Create data export functionality", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/api-service"}
+{"type": "message", "id": "c1e18ca5-f19b-4f1f-8889-73228b850132", "timestamp": "2025-11-08T15:41:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Create data export functionality"}]}}

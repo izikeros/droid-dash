@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "5b0c91d7-c763-4ff8-bf73-28b3d4077647", "title": "New Session", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/opensource/python-lib"}
+{"type": "message", "id": "a1a2972f-e927-427b-80dc-6f0f6353ac05", "timestamp": "2025-11-12T02:45:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "New Session"}]}}

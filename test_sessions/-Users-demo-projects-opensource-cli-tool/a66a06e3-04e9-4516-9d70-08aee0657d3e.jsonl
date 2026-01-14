@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "a66a06e3-04e9-4516-9d70-08aee0657d3e", "title": "Implement file upload feature", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/opensource/cli-tool"}
+{"type": "message", "id": "ce52787a-a4c0-49c6-b22a-5e5764919539", "timestamp": "2025-12-30T02:15:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Implement file upload feature"}]}}

@@ -1,0 +1,13 @@
+{
+  "assistantActiveTimeMs": 2569056,
+  "model": "claude-opus-4-5-20251101",
+  "reasoningEffort": "off",
+  "autonomyMode": "spec",
+  "tokenUsage": {
+    "inputTokens": 484,
+    "outputTokens": 37915,
+    "cacheCreationTokens": 358119,
+    "cacheReadTokens": 3165999,
+    "thinkingTokens": 0
+  }
+}

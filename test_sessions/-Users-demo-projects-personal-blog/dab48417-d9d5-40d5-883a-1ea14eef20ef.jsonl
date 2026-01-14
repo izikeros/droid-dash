@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "dab48417-d9d5-40d5-883a-1ea14eef20ef", "title": "Debug failing CI pipeline", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/personal/blog"}
+{"type": "message", "id": "8e6390ac-9863-4486-b8f7-6cedcb5234a8", "timestamp": "2026-01-09T20:24:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Debug failing CI pipeline"}]}}

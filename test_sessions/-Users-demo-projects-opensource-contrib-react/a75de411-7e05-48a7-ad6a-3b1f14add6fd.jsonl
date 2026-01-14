@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "a75de411-7e05-48a7-ad6a-3b1f14add6fd", "title": "Add e2e tests for checkout flow", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/opensource/contrib-react"}
+{"type": "message", "id": "744cc8fe-57eb-4973-8e54-26163c36c9c7", "timestamp": "2025-12-09T10:39:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Add e2e tests for checkout flow"}]}}

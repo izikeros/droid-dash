@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "e1169f57-a5ca-46ff-936c-df8023a5b2de", "title": "Debug WebSocket disconnection problem", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/opensource/contrib-react"}
+{"type": "message", "id": "9fcc26ff-cc20-4795-8437-bec3e76078c3", "timestamp": "2025-11-16T09:06:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Debug WebSocket disconnection problem"}]}}

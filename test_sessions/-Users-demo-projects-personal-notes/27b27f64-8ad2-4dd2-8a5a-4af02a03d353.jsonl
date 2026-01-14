@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "27b27f64-8ad2-4dd2-8a5a-4af02a03d353", "title": "Update API documentation", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/personal/notes"}
+{"type": "message", "id": "71b15417-0cb2-4e1c-91e2-86f9f4620a84", "timestamp": "2026-01-09T13:37:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Update API documentation"}]}}

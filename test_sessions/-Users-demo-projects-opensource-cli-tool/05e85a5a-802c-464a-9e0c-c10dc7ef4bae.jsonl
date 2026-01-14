@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "05e85a5a-802c-464a-9e0c-c10dc7ef4bae", "title": "Clean up unused dependencies", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/opensource/cli-tool"}
+{"type": "message", "id": "8398c825-26c2-4793-87a7-2af3e199eeac", "timestamp": "2025-12-21T03:50:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Clean up unused dependencies"}]}}

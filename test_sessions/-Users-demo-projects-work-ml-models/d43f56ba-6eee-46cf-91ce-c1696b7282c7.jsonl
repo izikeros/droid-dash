@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "d43f56ba-6eee-46cf-91ce-c1696b7282c7", "title": "Create REST API endpoints", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/ml-models"}
+{"type": "message", "id": "731fe642-9824-4130-b986-6b6493462ba9", "timestamp": "2026-01-06T23:35:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Create REST API endpoints"}]}}

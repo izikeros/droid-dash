@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "b10a8b65-ffbf-4c82-88bd-9df086ec68e8", "title": "Optimize database queries", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/ml-models"}
+{"type": "message", "id": "58101938-e93b-47c5-8126-7780427f4dc5", "timestamp": "2025-10-23T20:45:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Optimize database queries"}]}}

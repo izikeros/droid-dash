@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "49e75cc8-3da0-43ff-b9ce-3b5dd35e12e7", "title": "Write README for new module", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/frontend"}
+{"type": "message", "id": "9846a0bb-ff3f-425c-a3eb-0a926d651d07", "timestamp": "2026-01-01T17:34:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Write README for new module"}]}}

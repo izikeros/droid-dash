@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "372c7d96-d57f-41e3-ab36-62fcc9c65046", "title": "Resolve CORS issues with API gateway", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/ml-models"}
+{"type": "message", "id": "ded09687-2bfb-44be-85da-fa8ff9ecebf8", "timestamp": "2025-11-03T20:44:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Resolve CORS issues with API gateway"}]}}

@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "c4b598eb-9195-4102-ba4a-21f54a079a6d", "title": "Set up monitoring and alerts", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/frontend"}
+{"type": "message", "id": "07b246a3-d008-4585-8491-a3651957c47a", "timestamp": "2025-11-10T12:37:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Set up monitoring and alerts"}]}}

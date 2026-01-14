@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "a05a74ff-648a-4c82-8c48-4428f3d278fd", "title": "Implement ETL pipeline", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/personal/notes"}
+{"type": "message", "id": "e1b05a71-d947-4e7a-a3ac-fbbd63c8c1ee", "timestamp": "2025-12-19T21:18:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Implement ETL pipeline"}]}}

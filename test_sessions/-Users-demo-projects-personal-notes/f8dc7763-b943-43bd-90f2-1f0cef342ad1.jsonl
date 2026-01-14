@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "f8dc7763-b943-43bd-90f2-1f0cef342ad1", "title": "New Session", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/personal/notes"}
+{"type": "message", "id": "12dd2d3b-c389-4219-90bf-762707634301", "timestamp": "2025-11-09T08:11:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "New Session"}]}}

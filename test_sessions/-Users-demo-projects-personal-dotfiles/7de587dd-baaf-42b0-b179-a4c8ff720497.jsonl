@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "7de587dd-baaf-42b0-b179-a4c8ff720497", "title": "Add e2e tests for checkout flow", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/personal/dotfiles"}
+{"type": "message", "id": "78770181-b7a7-438f-ba77-defa7df72560", "timestamp": "2025-12-25T09:14:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Add e2e tests for checkout flow"}]}}

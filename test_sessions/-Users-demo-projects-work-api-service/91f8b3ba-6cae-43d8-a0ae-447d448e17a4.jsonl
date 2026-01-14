@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "91f8b3ba-6cae-43d8-a0ae-447d448e17a4", "title": "Implement user authentication flow", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/api-service"}
+{"type": "message", "id": "af5fd877-7909-44fb-81fd-48b08f7eb75f", "timestamp": "2025-12-04T13:59:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Implement user authentication flow"}]}}

@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "b64061ca-255d-4dd1-bb50-ca9f8bef84c5", "title": "Configure auto-scaling", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/ml-models"}
+{"type": "message", "id": "3cd64408-6b44-4c80-aea5-1d8fe32f32d0", "timestamp": "2025-12-02T22:03:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Configure auto-scaling"}]}}

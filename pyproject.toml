@@ -1,0 +1,82 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "factory-dashboard"
+version = "0.1.0"
+description = "TUI dashboard for Factory.ai Droid session analytics - track tokens, costs, and explore sessions"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Krystian Safjan", email = "ksafjan@gmail.com"}
+]
+keywords = [
+    "factory-ai",
+    "droid",
+    "tui",
+    "dashboard",
+    "analytics",
+    "claude",
+    "ai-coding",
+    "textual",
+    "terminal",
+    "session-management"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: User Interfaces",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+dependencies = [
+    "textual>=0.47.0",
+    "rich>=13.0.0",
+    "pydantic>=2.0.0",
+    "click>=8.0.0",
+    "tomli>=2.0.0; python_version < '3.11'",
+]
+
+[project.scripts]
+factory-dashboard = "factory_dashboard.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/izikeros/factory-dashboard"
+Documentation = "https://izikeros.github.io/factory-dashboard"
+Repository = "https://github.com/izikeros/factory-dashboard"
+Issues = "https://github.com/izikeros/factory-dashboard/issues"
+Changelog = "https://github.com/izikeros/factory-dashboard/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/factory_dashboard"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[dependency-groups]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-bdd>=7.0.0",
+    "pytest-textual-snapshot>=1.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+docs = [
+    "mkdocs>=1.5.0",
+    "mkdocs-material>=9.0.0",
+    "mkdocstrings[python]>=0.24.0",
+]

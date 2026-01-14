@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "2d242d2d-5479-46e1-a8b8-38f0735567c5", "title": "Add performance benchmarks", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/api-service"}
+{"type": "message", "id": "2741eb0d-7d5a-4376-937f-6aa96d4e1ced", "timestamp": "2025-10-27T17:53:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Add performance benchmarks"}]}}

@@ -1,0 +1,2 @@
+{"type": "session_start", "id": "29909798-2be8-4346-86a7-49da29c4c7e4", "title": "Untitled Session", "owner": "demo", "version": 2, "cwd": "/Users/demo/projects/work/api-service"}
+{"type": "message", "id": "1e727e27-856d-4e79-8c2f-ca06c0142303", "timestamp": "2025-12-03T20:05:39.040645+00:00", "message": {"role": "user", "content": [{"type": "text", "text": "Untitled Session"}]}}

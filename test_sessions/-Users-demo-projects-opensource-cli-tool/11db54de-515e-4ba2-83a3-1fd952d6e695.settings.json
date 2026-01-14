@@ -1,0 +1,13 @@
+{
+  "assistantActiveTimeMs": 900686,
+  "model": "claude-sonnet-4-20250514",
+  "reasoningEffort": "off",
+  "autonomyMode": "suggest",
+  "tokenUsage": {
+    "inputTokens": 124,
+    "outputTokens": 82061,
+    "cacheCreationTokens": 74980,
+    "cacheReadTokens": 10301313,
+    "thinkingTokens": 0
+  }
+}
