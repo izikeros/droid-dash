@@ -9,7 +9,7 @@ TEST_DIR = tests
 PACKAGE = droid_dash
 VENV = .venv/bin
 
-.PHONY: help install create-venv install-deps clean test coverage coverage-show format lint lint-stats fix type bandit changelog docs docs-serve build run
+.PHONY: help install create-venv install-deps clean test coverage coverage-show format lint lint-stats fix type bandit changelog docs docs-serve build run nox nox-list
 
 .DEFAULT_GOAL := help
 
@@ -92,3 +92,11 @@ run: ## Run the TUI dashboard.
 
 changelog: ## Generate changelog using git-cliff.
 	git-cliff -o CHANGELOG.md
+
+nox: ## Run nox sessions (multi-version testing).
+	@echo -e "$(COLOR_CYAN)Running nox sessions...$(COLOR_RESET)"
+	$(VENV)/nox
+
+nox-list: ## List available nox sessions.
+	@echo -e "$(COLOR_CYAN)Available nox sessions:$(COLOR_RESET)"
+	$(VENV)/nox --list
