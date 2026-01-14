@@ -2,7 +2,7 @@
 
 [![PyPI version](https://img.shields.io/pypi/v/factory-dashboard.svg)](https://pypi.org/project/factory-dashboard/)
 [![Python versions](https://img.shields.io/pypi/pyversions/factory-dashboard.svg)](https://pypi.org/project/factory-dashboard/)
-[![CI](https://github.com/izikeros/factory-dashboard/actions/workflows/ci.yml/badge.svg)](https://github.com/izikeros/factory-dashboard/actions/workflows/ci.yml)
+[![CI](https://github.com/izikeros/droid-dash/actions/workflows/ci.yml/badge.svg)](https://github.com/izikeros/droid-dash/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A terminal-based dashboard for analyzing [Factory.ai](https://factory.ai) Droid sessions. Track token usage, estimate costs, explore session history, and connect to previous sessions directly from the TUI.
