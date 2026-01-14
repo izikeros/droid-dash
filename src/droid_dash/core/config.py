@@ -1,10 +1,11 @@
 """Configuration management for Factory Dashboard."""
 
 import os
-import tomllib  # type: ignore
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
+
+import tomllib  # type: ignore
 
 
 @dataclass
