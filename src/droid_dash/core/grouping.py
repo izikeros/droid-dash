@@ -1,5 +1,7 @@
 """Project grouping logic for session analytics."""
 
+from __future__ import annotations
+
 from collections import defaultdict
 
 from .models import Project, ProjectGroup, Session

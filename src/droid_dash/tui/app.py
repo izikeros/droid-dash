@@ -184,7 +184,7 @@ class ConnectSessionScreen(ModalScreen):
 
     def __init__(
         self,
-        session: "Session",
+        session: Session,
         name: str | None = None,
         id: str | None = None,
         classes: str | None = None,
