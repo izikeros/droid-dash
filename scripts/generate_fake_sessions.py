@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """Generate fake Factory.ai session data for demo purposes."""
 
+from __future__ import annotations
+
 import argparse
 import json
 import os
 import random
 import uuid
-from datetime import UTC, datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Any
 
 # Pre-generated project structure
@@ -119,7 +121,9 @@ def generate_token_usage(is_empty: bool = False) -> dict[str, int]:
     cache_creation = random.randint(50_000, 500_000)
     output = random.randint(5_000, 100_000)
     input_tokens = random.randint(50, 500)
-    thinking = random.choice([0, 0, 0, random.randint(1000, 50000)])  # Occasional thinking
+    thinking = random.choice(
+        [0, 0, 0, random.randint(1000, 50000)]
+    )  # Occasional thinking
 
     return {
         "inputTokens": input_tokens,
@@ -130,7 +134,9 @@ def generate_token_usage(is_empty: bool = False) -> dict[str, int]:
     }
 
 
-def generate_settings(model: str, active_time_ms: int, is_empty: bool = False) -> dict[str, Any]:
+def generate_settings(
+    model: str, active_time_ms: int, is_empty: bool = False
+) -> dict[str, Any]:
     """Generate session settings."""
     return {
         "assistantActiveTimeMs": active_time_ms,
@@ -161,10 +167,7 @@ def generate_jsonl(session_id: str, title: str, cwd: str, timestamp: datetime) -
         "type": "message",
         "id": str(uuid.uuid4()),
         "timestamp": timestamp.isoformat(),
-        "message": {
-            "role": "user",
-            "content": [{"type": "text", "text": title}]
-        }
+        "message": {"role": "user", "content": [{"type": "text", "text": title}]},
     }
     lines.append(json.dumps(message))
 
@@ -182,7 +185,7 @@ def generate_sessions(
     start_date: datetime,
     end_date: datetime,
     empty_ratio: float = 0.15,
-    seed: int = None,
+    seed: int | None = None,
 ) -> None:
     """Generate fake session data."""
     if seed is not None:
@@ -201,7 +204,7 @@ def generate_sessions(
     all_session_ids = []
     date_range = (end_date - start_date).days
 
-    for i in range(num_sessions):
+    for _i in range(num_sessions):
         session_id = str(uuid.uuid4())
         all_session_ids.append(session_id)
 
@@ -212,7 +215,9 @@ def generate_sessions(
         days_offset = random.randint(0, date_range)
         hours_offset = random.randint(0, 23)
         minutes_offset = random.randint(0, 59)
-        timestamp = start_date + timedelta(days=days_offset, hours=hours_offset, minutes=minutes_offset)
+        timestamp = start_date + timedelta(
+            days=days_offset, hours=hours_offset, minutes=minutes_offset
+        )
 
         # Determine if this is an empty session
         is_empty = random.random() < empty_ratio
@@ -273,21 +278,22 @@ Examples:
         help="Target directory for fake sessions (required)",
     )
     parser.add_argument(
-        "--num-sessions", "-n",
+        "--num-sessions",
+        "-n",
         type=int,
         default=50,
         help="Total number of sessions to generate (default: 50)",
     )
     parser.add_argument(
         "--start-date",
-        type=lambda s: datetime.strptime(s, "%Y-%m-%d").replace(tzinfo=UTC),
-        default=datetime.now(UTC) - timedelta(days=90),
+        type=lambda s: datetime.strptime(s, "%Y-%m-%d").replace(tzinfo=timezone.utc),
+        default=datetime.now(timezone.utc) - timedelta(days=90),
         help="Start date for sessions YYYY-MM-DD (default: 90 days ago)",
     )
     parser.add_argument(
         "--end-date",
-        type=lambda s: datetime.strptime(s, "%Y-%m-%d").replace(tzinfo=UTC),
-        default=datetime.now(UTC),
+        type=lambda s: datetime.strptime(s, "%Y-%m-%d").replace(tzinfo=timezone.utc),
+        default=datetime.now(timezone.utc),
         help="End date for sessions YYYY-MM-DD (default: today)",
     )
     parser.add_argument(
