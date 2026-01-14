@@ -9,7 +9,7 @@ TEST_DIR = tests
 PACKAGE = droid_dash
 VENV = .venv/bin
 
-.PHONY: help install create-venv install-deps clean test coverage coverage-show format lint lint-stats fix type bandit changelog docs docs-serve build run nox nox-list
+.PHONY: help install create-venv install-deps clean test coverage coverage-show format lint lint-stats fix type bandit changelog docs docs-serve build run nox nox-list pre-commit pre-commit-install
 
 .DEFAULT_GOAL := help
 
@@ -100,3 +100,11 @@ nox: ## Run nox sessions (multi-version testing).
 nox-list: ## List available nox sessions.
 	@echo -e "$(COLOR_CYAN)Available nox sessions:$(COLOR_RESET)"
 	$(VENV)/nox --list
+
+pre-commit: ## Run pre-commit hooks on all files.
+	@echo -e "$(COLOR_CYAN)Running pre-commit hooks...$(COLOR_RESET)"
+	$(VENV)/pre-commit run --all-files
+
+pre-commit-install: ## Install pre-commit hooks.
+	@echo -e "$(COLOR_CYAN)Installing pre-commit hooks...$(COLOR_RESET)"
+	$(VENV)/pre-commit install
