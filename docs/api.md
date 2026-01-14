@@ -1,12 +1,12 @@
 # API Reference
 
-Factory Dashboard is primarily a CLI/TUI tool, but its core modules can be used programmatically.
+Droid Dash is primarily a CLI/TUI tool, but its core modules can be used programmatically.
 
 ## Core Modules
 
 ### Models
 
-::: factory_dashboard.core.models
+::: droid_dash.core.models
     options:
       show_root_heading: true
       members:
@@ -19,7 +19,7 @@ Factory Dashboard is primarily a CLI/TUI tool, but its core modules can be used 
 
 ### Parser
 
-::: factory_dashboard.core.parser
+::: droid_dash.core.parser
     options:
       show_root_heading: true
       members:
@@ -27,7 +27,7 @@ Factory Dashboard is primarily a CLI/TUI tool, but its core modules can be used 
 
 ### Cost Estimation
 
-::: factory_dashboard.core.cost
+::: droid_dash.core.cost
     options:
       show_root_heading: true
       members:
@@ -37,7 +37,7 @@ Factory Dashboard is primarily a CLI/TUI tool, but its core modules can be used 
 
 ### Configuration
 
-::: factory_dashboard.core.config
+::: droid_dash.core.config
     options:
       show_root_heading: true
       members:
@@ -54,7 +54,7 @@ Factory Dashboard is primarily a CLI/TUI tool, but its core modules can be used 
 ### Parse Sessions
 
 ```python
-from factory_dashboard.core.parser import SessionParser
+from droid_dash.core.parser import SessionParser
 
 parser = SessionParser("~/.factory/sessions")
 sessions = parser.parse_all_sessions()
@@ -66,8 +66,8 @@ for session in sessions:
 ### Estimate Costs
 
 ```python
-from factory_dashboard.core.parser import SessionParser
-from factory_dashboard.core.cost import CostEstimator, format_cost
+from droid_dash.core.parser import SessionParser
+from droid_dash.core.cost import CostEstimator, format_cost
 
 parser = SessionParser()
 sessions = parser.parse_all_sessions()
@@ -80,7 +80,7 @@ print(f"Total estimated cost: {format_cost(total_cost)}")
 ### Load Configuration
 
 ```python
-from factory_dashboard.core.config import load_config, Config
+from droid_dash.core.config import load_config, Config
 
 # Load from default location
 config = load_config()
@@ -96,7 +96,7 @@ print(f"Dark mode: {config.display.dark_mode}")
 ### Custom Cost Estimation
 
 ```python
-from factory_dashboard.core.cost import CostEstimator, ModelPricing
+from droid_dash.core.cost import CostEstimator, ModelPricing
 
 # Custom pricing for a model
 custom_pricing = {
