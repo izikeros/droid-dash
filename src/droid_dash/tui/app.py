@@ -1,7 +1,7 @@
 """Main Textual application for Factory Dashboard."""
 
 from collections import defaultdict
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 
 from rich.markup import escape
 from rich.text import Text
@@ -1082,13 +1082,13 @@ class DashboardScreen(Screen):
         if sort_key == "date_desc":
             return sorted(
                 sessions,
-                key=lambda s: s.timestamp or datetime.min.replace(tzinfo=UTC),
+                key=lambda s: s.timestamp or datetime.min.replace(tzinfo=timezone.utc),
                 reverse=True,
             )
         elif sort_key == "date_asc":
             return sorted(
                 sessions,
-                key=lambda s: s.timestamp or datetime.min.replace(tzinfo=UTC),
+                key=lambda s: s.timestamp or datetime.min.replace(tzinfo=timezone.utc),
             )
         elif sort_key == "tokens_desc":
             return sorted(sessions, key=lambda s: s.tokens.total_tokens, reverse=True)

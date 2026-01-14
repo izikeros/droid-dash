@@ -1,12 +1,12 @@
 """Aggregation logic for session statistics."""
 
 from collections import defaultdict
-from datetime import UTC, date, datetime
+from datetime import date, datetime, timezone
 
 from .grouping import ProjectGrouper
 from .models import DashboardStats, Project, Session, TokenUsage
 
-MIN_DATETIME = datetime.min.replace(tzinfo=UTC)
+MIN_DATETIME = datetime.min.replace(tzinfo=timezone.utc)
 
 
 class SessionAggregator:
@@ -21,7 +21,7 @@ class SessionAggregator:
         if session.timestamp:
             ts = session.timestamp
             if ts.tzinfo is None:
-                ts = ts.replace(tzinfo=UTC)
+                ts = ts.replace(tzinfo=timezone.utc)
             return (1, ts)
         return (0, session.id)
 
