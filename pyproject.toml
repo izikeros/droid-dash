@@ -74,6 +74,7 @@ dev = [
     "pytest-textual-snapshot>=1.0.0",
     "ruff>=0.1.0",
     "mypy>=1.0.0",
+    "nox>=2024.0.0",
 ]
 docs = [
     "mkdocs>=1.5.0",
