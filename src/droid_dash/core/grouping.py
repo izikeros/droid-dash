@@ -24,7 +24,9 @@ class ProjectGrouper:
 
     def _build_hierarchy(self) -> None:
         """Build project and group hierarchy from sessions."""
-        project_sessions: dict[str, list[Session]] = defaultdict(list)
+        project_sessions: dict[
+            tuple[str, str, str], list[Session]
+        ] = defaultdict(list)
 
         for session in self.sessions:
             key = (session.project_path, session.project_name, session.project_group)

@@ -63,7 +63,22 @@ TUI dashboard for Factory.ai Droid session analytics - track tokens, costs, and 
 - Branch from `main` with descriptive names
 - Run `make lint test` before committing
 - Never force-push to `main`
-- Keep commits atomic with conventional prefixes (`feat:`, `fix:`, `test:`)
+
+**Commit Messages (STRICT):**
+- Use conventional commits format: `type: description`
+- Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, `build`, `ci`
+- Keep subject line under 72 characters
+- **DO NOT add "Co-authored-by" lines** - no co-author attribution in commits
+- Example: `feat: add dark mode toggle to settings`
+
+**Versioning (ACTIVE):**
+- **Be proactive** - commit changes frequently and bump version after completing features
+- For every major piece of completed work:
+  1. Commit all changes
+  2. Run `make bump-patch` (or `bump-minor`/`bump-major` as appropriate)
+  3. Run `make changelog` to update CHANGELOG.md
+  4. Commit the version bump and changelog update
+- This creates a git tag automatically (e.g., `v0.1.1`)
 
 ## Gotchas
 

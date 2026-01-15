@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "TUI dashboard for Factory.ai Droid session analytics - track tokens, costs, and explore sessions"
 readme = "README.md"
 license = {text = "MIT"}
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 authors = [
     {name = "Krystian Safjan", email = "ksafjan@gmail.com"}
 ]
@@ -31,7 +31,6 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -67,21 +66,26 @@ asyncio_mode = "auto"
 
 [dependency-groups]
 dev = [
-    "pytest>=7.0.0",
+    "pytest>=8.0.0",
     "pytest-cov>=4.0.0",
     "pytest-asyncio>=0.21.0",
     "pytest-bdd>=7.0.0",
     "pytest-textual-snapshot>=1.0.0",
-    "ruff>=0.1.0",
+    "ruff>=0.9.0",
     "mypy>=1.0.0",
-    "ty>=0.0.1a9",
+    "ty>=0.0.1a23",
     "nox>=2024.0.0",
     "pre-commit>=3.0.0",
     "bump-my-version>=0.28.0",
+    "git-cliff>=2.0.0",
+    "bandit[toml]>=1.7.5",
+    "safety>=3.0.0",
+    "build>=1.0.0",
+    "twine>=5.0.0",
 ]
 docs = [
-    "mkdocs>=1.5.0",
-    "mkdocs-material>=9.0.0",
+    "mkdocs>=1.6.0",
+    "mkdocs-material>=9.5.0",
     "mkdocstrings[python]>=0.24.0",
 ]
 

@@ -39,6 +39,7 @@ def _connect_to_session(session: Session) -> None:
     console.print(f"[dim]Session ID: {session.id}[/]\n")
 
     # Replace current process with droid
+    assert droid_path is not None  # Type narrowing - checked above
     os.execvp(droid_path, [droid_path, "-r", session.id])
 
 

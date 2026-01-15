@@ -329,7 +329,10 @@ class DashboardScreen(Screen):
         if not new_title.strip():
             return
 
-        parser = SessionParser(self.app.sessions_dir)
+        app = self.app
+        assert hasattr(app, "sessions_dir")  # FactoryDashboardApp attribute
+        sessions_dir: str = app.sessions_dir  # type: ignore[attr-defined]
+        parser = SessionParser(sessions_dir)
         if parser.update_session_title(session_id, new_title):
             for session in self.stats.sessions:
                 if session.id == session_id:
@@ -361,7 +364,10 @@ class DashboardScreen(Screen):
         if not session:
             return
 
-        parser = SessionParser(self.app.sessions_dir)
+        app = self.app
+        assert hasattr(app, "sessions_dir")  # FactoryDashboardApp attribute
+        sessions_dir: str = app.sessions_dir  # type: ignore[attr-defined]
+        parser = SessionParser(sessions_dir)
         new_status = parser.toggle_favorite(session.id)
         session.is_favorite = new_status
         self._refresh_sessions_table()
@@ -385,11 +391,11 @@ class DashboardScreen(Screen):
             return
 
         try:
-            self.app.clipboard = session.id
+            self.app.clipboard = session.id  # type: ignore[invalid-assignment]
             # Show a brief status message if possible
             # Since we don't have a shared status bar, we can use the prompts header temporarily
             header = self.query_one("#prompts-header", Static)
-            original_text = str(header.renderable)
+            original_text = "User Prompts"  # Default header text
             header.update("[green]ID Copied to Clipboard![/]")
 
             def restore_header():
@@ -867,10 +873,10 @@ class DashboardScreen(Screen):
 
     def on_select_changed(self, event: Select.Changed) -> None:
         if event.select.id == "sort-select":
-            self.sessions_sort = event.value
+            self.sessions_sort = event.value  # type: ignore[invalid-assignment]
             self._refresh_sessions_table()
         elif event.select.id == "group-select":
-            self.sessions_group = event.value
+            self.sessions_group = event.value  # type: ignore[invalid-assignment]
             self._refresh_sessions_table()
 
     def on_checkbox_changed(self, event: Checkbox.Changed) -> None:
@@ -964,7 +970,7 @@ class DashboardScreen(Screen):
             if column_key == self.projects_sort_column:
                 self.projects_sort_reverse = not self.projects_sort_reverse
             else:
-                self.projects_sort_column = column_key
+                self.projects_sort_column = column_key  # type: ignore[invalid-assignment]
                 self.projects_sort_reverse = True
             self._refresh_projects_table()
 
@@ -1002,7 +1008,10 @@ class DashboardScreen(Screen):
 
         header.update(f"[bold]{escape(session.title[:40])}[/]")
 
-        parser = SessionParser(self.app.sessions_dir)
+        app = self.app
+        assert hasattr(app, "sessions_dir")  # FactoryDashboardApp attribute
+        sessions_dir: str = app.sessions_dir  # type: ignore[attr-defined]
+        parser = SessionParser(sessions_dir)
         prompts = parser.get_session_prompts(session.id)
 
         if not prompts:
@@ -1045,7 +1054,10 @@ class DashboardScreen(Screen):
         header.update(f"[bold]{escape(session.title[:40])}[/]")
 
         # Get prompts
-        parser = SessionParser(self.app.sessions_dir)
+        app = self.app
+        assert hasattr(app, "sessions_dir")  # FactoryDashboardApp attribute
+        sessions_dir: str = app.sessions_dir  # type: ignore[attr-defined]
+        parser = SessionParser(sessions_dir)
         prompts = parser.get_session_prompts(session.id)
 
         if not prompts:
