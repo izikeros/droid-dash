@@ -9,7 +9,7 @@ TEST_DIR = tests
 PACKAGE = droid_dash
 VENV = .venv/bin
 
-.PHONY: help install create-venv install-deps clean test coverage coverage-show format lint lint-stats fix type bandit changelog docs docs-serve build run nox nox-list pre-commit pre-commit-install
+.PHONY: help install create-venv install-deps clean test coverage coverage-show format lint lint-stats fix type ty bandit changelog docs docs-serve build run nox nox-list pre-commit pre-commit-install bump-patch bump-minor bump-major
 
 .DEFAULT_GOAL := help
 
@@ -70,6 +70,10 @@ type: ## Run type checker (mypy).
 	@echo -e "$(COLOR_CYAN)Type checking...$(COLOR_RESET)"
 	$(VENV)/mypy $(SRC_DIR)/$(PACKAGE) --ignore-missing-imports
 
+ty: ## Run ty static type checker.
+	@echo -e "$(COLOR_CYAN)Running ty type checker...$(COLOR_RESET)"
+	$(VENV)/ty check $(SRC_DIR)
+
 bandit: ## Run security linter.
 	@echo -e "$(COLOR_CYAN)Running bandit...$(COLOR_RESET)"
 	$(VENV)/bandit -r $(SRC_DIR) -ll -ii
@@ -108,3 +112,15 @@ pre-commit: ## Run pre-commit hooks on all files.
 pre-commit-install: ## Install pre-commit hooks.
 	@echo -e "$(COLOR_CYAN)Installing pre-commit hooks...$(COLOR_RESET)"
 	$(VENV)/pre-commit install
+
+bump-patch: ## Bump patch version (0.0.X).
+	@echo -e "$(COLOR_CYAN)Bumping patch version...$(COLOR_RESET)"
+	$(VENV)/bump-my-version bump patch
+
+bump-minor: ## Bump minor version (0.X.0).
+	@echo -e "$(COLOR_CYAN)Bumping minor version...$(COLOR_RESET)"
+	$(VENV)/bump-my-version bump minor
+
+bump-major: ## Bump major version (X.0.0).
+	@echo -e "$(COLOR_CYAN)Bumping major version...$(COLOR_RESET)"
+	$(VENV)/bump-my-version bump major

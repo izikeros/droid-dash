@@ -5,3 +5,9 @@ repos:
       - id: ruff
         args: [--fix]
       - id: ruff-format
+
+  # ty type checker (disabled until more mature)
+  # - repo: https://github.com/astral-sh/ty
+  #   rev: v0.0.1-alpha.9
+  #   hooks:
+  #     - id: ty

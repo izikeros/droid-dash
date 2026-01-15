@@ -37,6 +37,11 @@ jobs:
           uv run mypy src/droid_dash --ignore-missing-imports
         continue-on-error: true
 
+      # - name: Type check with ty
+      #   run: |
+      #     uvx ty check src/
+      #   continue-on-error: true
+
       - name: Run tests
         run: |
           uv run pytest tests/ -v --cov=droid_dash --cov-report=xml

@@ -74,11 +74,30 @@ dev = [
     "pytest-textual-snapshot>=1.0.0",
     "ruff>=0.1.0",
     "mypy>=1.0.0",
+    "ty>=0.0.1a9",
     "nox>=2024.0.0",
     "pre-commit>=3.0.0",
+    "bump-my-version>=0.28.0",
 ]
 docs = [
     "mkdocs>=1.5.0",
     "mkdocs-material>=9.0.0",
     "mkdocstrings[python]>=0.24.0",
 ]
+
+[tool.bumpversion]
+current_version = "0.1.0"
+commit = true
+tag = true
+tag_name = "v{new_version}"
+message = "Bump version: {current_version} → {new_version}"
+
+[[tool.bumpversion.files]]
+filename = "pyproject.toml"
+search = 'version = "{current_version}"'
+replace = 'version = "{new_version}"'
+
+[[tool.bumpversion.files]]
+filename = "src/droid_dash/__init__.py"
+search = '__version__ = "{current_version}"'
+replace = '__version__ = "{new_version}"'
