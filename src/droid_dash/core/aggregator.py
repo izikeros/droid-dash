@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections import defaultdict
 from datetime import date, datetime, timezone
+from typing import Any
 
 from .grouping import ProjectGrouper
 from .models import DashboardStats, Project, Session, TokenUsage
@@ -75,6 +76,56 @@ class SessionAggregator:
                 d = session.timestamp.date()
                 by_date[d] = by_date[d] + session.tokens
         return dict(by_date)
+
+    def get_daily_stats(self) -> dict[str, Any]:
+        """Calculate daily usage statistics including medians and peak days."""
+        daily_tokens: dict[date, int] = defaultdict(int)
+        daily_time: dict[date, int] = defaultdict(int)
+
+        for session in self.sessions:
+            if session.timestamp:
+                d = session.timestamp.date()
+                daily_tokens[d] += session.tokens.total_tokens
+                daily_time[d] += session.active_time_ms
+
+        if not daily_tokens:
+            return {
+                "median_daily_tokens": 0,
+                "median_daily_time_ms": 0,
+                "peak_token_day": None,
+                "peak_time_day": None,
+            }
+
+        # Calculate medians
+        token_values = sorted(daily_tokens.values())
+        time_values = sorted(daily_time.values())
+        n_tokens = len(token_values)
+        n_time = len(time_values)
+
+        if n_tokens % 2 == 0:
+            median_tokens = (
+                token_values[n_tokens // 2 - 1] + token_values[n_tokens // 2]
+            ) // 2
+        else:
+            median_tokens = token_values[n_tokens // 2]
+
+        if n_time % 2 == 0:
+            median_time = (
+                time_values[n_time // 2 - 1] + time_values[n_time // 2]
+            ) // 2
+        else:
+            median_time = time_values[n_time // 2]
+
+        # Find peak days
+        peak_token_day = max(daily_tokens.items(), key=lambda x: x[1])
+        peak_time_day = max(daily_time.items(), key=lambda x: x[1])
+
+        return {
+            "median_daily_tokens": median_tokens,
+            "median_daily_time_ms": median_time,
+            "peak_token_day": peak_token_day,
+            "peak_time_day": peak_time_day,
+        }
 
     def get_sessions_by_model(self) -> dict[str, list[Session]]:
         """Get sessions grouped by model."""

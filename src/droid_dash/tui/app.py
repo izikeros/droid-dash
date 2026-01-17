@@ -464,6 +464,19 @@ class DashboardScreen(Screen):
             if self.stats.date_range[0] and self.stats.date_range[1]:
                 date_range_str = f"{self.stats.date_range[0].strftime('%Y-%m-%d')} to {self.stats.date_range[1].strftime('%Y-%m-%d')}"
 
+            aggregator = SessionAggregator(self.stats.sessions)
+            daily_stats = aggregator.get_daily_stats()
+
+            # Format peak day stats
+            peak_token_str = "N/A"
+            peak_time_str = "N/A"
+            if daily_stats["peak_token_day"]:
+                peak_date, peak_tokens = daily_stats["peak_token_day"]
+                peak_token_str = f"{peak_date} ({format_tokens(peak_tokens)})"
+            if daily_stats["peak_time_day"]:
+                peak_date, peak_time = daily_stats["peak_time_day"]
+                peak_time_str = f"{peak_date} ({format_duration(peak_time)})"
+
             with Horizontal(classes="stats-row"):
                 yield StatsPanel(
                     "Summary",
@@ -478,7 +491,21 @@ class DashboardScreen(Screen):
                 )
                 yield TokenBar(self.stats.total_tokens, title="Token Distribution")
 
-            aggregator = SessionAggregator(self.stats.sessions)
+            with Horizontal(classes="stats-row"):
+                yield StatsPanel(
+                    "Daily Usage",
+                    {
+                        "Median Daily Tokens": format_tokens(
+                            daily_stats["median_daily_tokens"]
+                        ),
+                        "Median Daily Time": format_duration(
+                            daily_stats["median_daily_time_ms"]
+                        ),
+                        "Peak Token Day": peak_token_str,
+                        "Peak Time Day": peak_time_str,
+                    },
+                )
+
             activity = aggregator.get_activity_by_date()
             yield ActivityHeatmap(activity, weeks=20, title="Activity (Last 20 Weeks)")
 
