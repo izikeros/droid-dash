@@ -32,7 +32,7 @@ jobs:
       - name: Run safety check
         run: |
           uv pip install safety
-          uv run safety check
+          uv run safety scan
         continue-on-error: true
 
       - name: Upload security reports
