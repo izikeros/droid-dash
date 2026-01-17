@@ -127,6 +127,67 @@ class SessionAggregator:
             "peak_time_day": peak_time_day,
         }
 
+    def get_weekly_stats(self) -> dict[str, Any]:
+        """Calculate weekly usage statistics."""
+        weekly_tokens: dict[tuple[int, int], int] = defaultdict(int)
+        weekly_time: dict[tuple[int, int], int] = defaultdict(int)
+
+        for session in self.sessions:
+            if session.timestamp:
+                iso_cal = session.timestamp.isocalendar()
+                week_key = (iso_cal.year, iso_cal.week)
+                weekly_tokens[week_key] += session.tokens.total_tokens
+                weekly_time[week_key] += session.active_time_ms
+
+        if not weekly_tokens:
+            return {
+                "avg_weekly_tokens": 0,
+                "avg_weekly_time_ms": 0,
+                "peak_week": None,
+                "num_weeks": 0,
+            }
+
+        avg_weekly_tokens = sum(weekly_tokens.values()) // len(weekly_tokens)
+        avg_weekly_time = sum(weekly_time.values()) // len(weekly_time)
+        peak_week = max(weekly_tokens.items(), key=lambda x: x[1])
+
+        return {
+            "avg_weekly_tokens": avg_weekly_tokens,
+            "avg_weekly_time_ms": avg_weekly_time,
+            "peak_week": peak_week,
+            "num_weeks": len(weekly_tokens),
+        }
+
+    def get_monthly_stats(self) -> dict[str, Any]:
+        """Calculate monthly usage statistics."""
+        monthly_tokens: dict[tuple[int, int], int] = defaultdict(int)
+        monthly_time: dict[tuple[int, int], int] = defaultdict(int)
+
+        for session in self.sessions:
+            if session.timestamp:
+                month_key = (session.timestamp.year, session.timestamp.month)
+                monthly_tokens[month_key] += session.tokens.total_tokens
+                monthly_time[month_key] += session.active_time_ms
+
+        if not monthly_tokens:
+            return {
+                "avg_monthly_tokens": 0,
+                "avg_monthly_time_ms": 0,
+                "peak_month": None,
+                "num_months": 0,
+            }
+
+        avg_monthly_tokens = sum(monthly_tokens.values()) // len(monthly_tokens)
+        avg_monthly_time = sum(monthly_time.values()) // len(monthly_time)
+        peak_month = max(monthly_tokens.items(), key=lambda x: x[1])
+
+        return {
+            "avg_monthly_tokens": avg_monthly_tokens,
+            "avg_monthly_time_ms": avg_monthly_time,
+            "peak_month": peak_month,
+            "num_months": len(monthly_tokens),
+        }
+
     def get_sessions_by_model(self) -> dict[str, list[Session]]:
         """Get sessions grouped by model."""
         by_model: dict[str, list[Session]] = defaultdict(list)

@@ -491,6 +491,22 @@ class DashboardScreen(Screen):
                 )
                 yield TokenBar(self.stats.total_tokens, title="Token Distribution")
 
+            # Get weekly and monthly stats
+            weekly_stats = aggregator.get_weekly_stats()
+            monthly_stats = aggregator.get_monthly_stats()
+
+            # Format peak week
+            peak_week_str = "N/A"
+            if weekly_stats["peak_week"]:
+                (year, week), tokens = weekly_stats["peak_week"]
+                peak_week_str = f"{year}-W{week:02d} ({format_tokens(tokens)})"
+
+            # Format peak month
+            peak_month_str = "N/A"
+            if monthly_stats["peak_month"]:
+                (year, month), tokens = monthly_stats["peak_month"]
+                peak_month_str = f"{year}-{month:02d} ({format_tokens(tokens)})"
+
             with Horizontal(classes="stats-row"):
                 yield StatsPanel(
                     "Daily Usage",
@@ -503,6 +519,19 @@ class DashboardScreen(Screen):
                         ),
                         "Peak Token Day": peak_token_str,
                         "Peak Time Day": peak_time_str,
+                    },
+                )
+                yield StatsPanel(
+                    "Weekly / Monthly",
+                    {
+                        "Avg Weekly Tokens": format_tokens(
+                            weekly_stats["avg_weekly_tokens"]
+                        ),
+                        "Avg Monthly Tokens": format_tokens(
+                            monthly_stats["avg_monthly_tokens"]
+                        ),
+                        "Peak Week": peak_week_str,
+                        "Peak Month": peak_month_str,
                     },
                 )
 
