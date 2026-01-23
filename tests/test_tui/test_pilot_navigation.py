@@ -79,11 +79,23 @@ class TestNavigation:
             assert group_select is not None
 
     @pytest.mark.asyncio
-    async def test_navigate_to_favorites_tab(self):
-        """Given dashboard is running, when I press 5, then I see Favorites tab."""
+    async def test_navigate_to_activity_tab(self):
+        """Given dashboard is running, when I press 5, then I see My Activity tab."""
         app = FactoryDashboardApp(sessions_dir=str(TEST_SESSIONS_DIR))
         async with app.run_test(size=(120, 40)) as pilot:
             await pilot.press("5")
+            await pilot.pause()
+
+            screen = app.screen
+            tabbed = screen.query_one(TabbedContent)
+            assert tabbed.active == "activity"
+
+    @pytest.mark.asyncio
+    async def test_navigate_to_favorites_tab(self):
+        """Given dashboard is running, when I press 6, then I see Favorites tab."""
+        app = FactoryDashboardApp(sessions_dir=str(TEST_SESSIONS_DIR))
+        async with app.run_test(size=(120, 40)) as pilot:
+            await pilot.press("6")
             await pilot.pause()
 
             screen = app.screen
@@ -92,10 +104,10 @@ class TestNavigation:
 
     @pytest.mark.asyncio
     async def test_navigate_to_settings_tab(self):
-        """Given dashboard is running, when I press 6, then I see Settings tab."""
+        """Given dashboard is running, when I press 7, then I see Settings tab."""
         app = FactoryDashboardApp(sessions_dir=str(TEST_SESSIONS_DIR))
         async with app.run_test(size=(120, 40)) as pilot:
-            await pilot.press("6")
+            await pilot.press("7")
             await pilot.pause()
 
             screen = app.screen
@@ -145,7 +157,7 @@ class TestSettingsTab:
         """Given I'm on Settings tab, then I should see configuration options."""
         app = FactoryDashboardApp(sessions_dir=str(TEST_SESSIONS_DIR))
         async with app.run_test(size=(120, 40)) as pilot:
-            await pilot.press("6")
+            await pilot.press("7")
             await pilot.pause()
 
             screen = app.screen

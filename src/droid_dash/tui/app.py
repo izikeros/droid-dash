@@ -30,7 +30,7 @@ from ..core import SessionAggregator, SessionParser
 from ..core.config import Config, get_config_path_display, load_config, save_config
 from ..core.cost import CostEstimator, format_cost
 from ..core.models import DashboardStats, Session
-from .widgets import ActivityHeatmap, ShareBar, StatsPanel, TokenBar
+from .widgets import ActivityHeatmap, DailyBarChart, ShareBar, StatsPanel, TokenBar
 from .widgets.stats_panel import format_duration, format_tokens
 
 SORT_OPTIONS = [
@@ -240,8 +240,9 @@ class DashboardScreen(Screen):
         Binding("2", "switch_tab('groups')", "Groups", show=False),
         Binding("3", "switch_tab('projects')", "Projects", show=False),
         Binding("4", "switch_tab('sessions')", "Sessions", show=False),
-        Binding("5", "switch_tab('favorites')", "Favorites", show=False),
-        Binding("6", "switch_tab('settings')", "Settings", show=False),
+        Binding("5", "switch_tab('activity')", "Activity", show=False),
+        Binding("6", "switch_tab('favorites')", "Favorites", show=False),
+        Binding("7", "switch_tab('settings')", "Settings", show=False),
         Binding("e", "edit_title", "Edit", show=True),
         Binding("f", "toggle_favorite", "Fav", show=True),
         Binding("c", "connect_session", "Connect", show=True),
@@ -271,6 +272,8 @@ class DashboardScreen(Screen):
         self.config = config or Config()
         self._session_row_map: dict[int, Session] = {}
         self._favorites_row_map: dict[int, Session] = {}
+        self._activity_dates: list = []
+        self._activity_date_row_map: dict[int, object] = {}
 
         # Apply config defaults
         self.sessions_sort = self.config.display.default_sort
@@ -449,6 +452,8 @@ class DashboardScreen(Screen):
                 yield from self._compose_projects()
             with TabPane("Sessions", id="sessions"):
                 yield from self._compose_sessions()
+            with TabPane("My Activity", id="activity"):
+                yield from self._compose_activity()
             with TabPane("Favorites", id="favorites"):
                 yield from self._compose_favorites()
             with TabPane("Settings", id="settings"):
@@ -661,6 +666,59 @@ class DashboardScreen(Screen):
                 ):
                     yield Static("", id="prompts-content", markup=False)
 
+    def _compose_activity(self) -> ComposeResult:
+        """Compose the My Activity tab with daily charts and day explorer."""
+        aggregator = SessionAggregator(self.stats.sessions)
+        daily_tokens, daily_time = aggregator.get_daily_totals()
+
+        def format_hours(ms: int) -> str:
+            hours = ms / 3600000
+            if hours >= 1:
+                return f"{hours:.1f}h"
+            minutes = ms / 60000
+            return f"{minutes:.0f}m"
+
+        with ScrollableContainer():
+            # Daily tokens chart
+            yield DailyBarChart(
+                daily_tokens,
+                title="Daily Tokens (Last 30 Days)",
+                days=30,
+                bar_color="cyan",
+            )
+
+            # Daily hours chart
+            yield DailyBarChart(
+                daily_time,
+                title="Daily Active Time (Last 30 Days)",
+                days=30,
+                bar_color="green",
+                value_formatter=format_hours,
+            )
+
+            # Day Explorer section
+            yield Static("[bold]Day Explorer[/]", classes="section-title")
+
+            with Horizontal(classes="activity-explorer"):
+                with Vertical(classes="activity-dates-panel"):
+                    yield Static("[dim]Select a date:[/]", classes="activity-dates-header")
+                    with ScrollableContainer(classes="activity-dates-container"):
+                        yield DataTable(id="activity-dates-table", cursor_type="row")
+
+                with Vertical(classes="activity-projects-panel"):
+                    yield Static(
+                        "[bold]Tokens by Project[/]",
+                        id="activity-projects-header",
+                        classes="activity-projects-header",
+                    )
+                    yield Static(
+                        "[dim]Select a date to view breakdown[/]",
+                        id="activity-projects-info",
+                        classes="activity-projects-info",
+                    )
+                    with ScrollableContainer(classes="activity-projects-container"):
+                        yield Static("", id="activity-projects-content")
+
     def _compose_favorites(self) -> ComposeResult:
         """Compose the favorites tab showing only favorite sessions."""
         with Horizontal(classes="sessions-split-view"):
@@ -828,6 +886,7 @@ class DashboardScreen(Screen):
         self._refresh_projects_table()
         self._refresh_sessions_table()
         self._refresh_favorites_table()
+        self._refresh_activity_dates_table()
 
     def _refresh_projects_table(self) -> None:
         """Refresh the projects table with current sort settings."""
@@ -926,6 +985,77 @@ class DashboardScreen(Screen):
                 format_duration(session.active_time_ms),
             )
             self._favorites_row_map[row_idx] = session
+
+    def _refresh_activity_dates_table(self) -> None:
+        """Refresh the activity dates table."""
+        try:
+            table = self.query_one("#activity-dates-table", DataTable)
+        except Exception:
+            return
+
+        table.clear(columns=True)
+        table.add_columns("Date", "Tokens", "Time")
+
+        aggregator = SessionAggregator(self.stats.sessions)
+        self._activity_dates = aggregator.get_dates_with_activity()
+        daily_tokens, daily_time = aggregator.get_daily_totals()
+
+        self._activity_date_row_map = {}
+        for row_idx, d in enumerate(self._activity_dates[:100]):
+            day_name = d.strftime("%A")
+            date_str = f"{d.strftime('%Y-%m-%d')}, {day_name}"
+            tokens = daily_tokens.get(d, 0)
+            time_ms = daily_time.get(d, 0)
+            table.add_row(
+                date_str,
+                format_tokens(tokens),
+                format_duration(time_ms),
+            )
+            self._activity_date_row_map[row_idx] = d
+
+    def _update_activity_projects_panel(self, selected_date) -> None:
+        """Update the activity projects panel for the selected date."""
+        from datetime import date as date_type
+
+        try:
+            header = self.query_one("#activity-projects-header", Static)
+            info = self.query_one("#activity-projects-info", Static)
+            content = self.query_one("#activity-projects-content", Static)
+        except Exception:
+            return
+
+        if not isinstance(selected_date, date_type):
+            return
+
+        day_name = selected_date.strftime("%A")
+        header.update(f"[bold]{selected_date.strftime('%Y-%m-%d')}, {day_name}[/]")
+
+        aggregator = SessionAggregator(self.stats.sessions)
+        project_tokens = aggregator.get_daily_tokens_by_project(selected_date)
+
+        if not project_tokens:
+            info.update("[dim]No activity on this day[/]")
+            content.update("")
+            return
+
+        total_tokens = sum(t for _, t in project_tokens)
+        info.update(f"[dim]Total: {format_tokens(total_tokens)} across {len(project_tokens)} projects[/]")
+
+        # Build a simple bar chart for projects
+        lines = []
+        max_tokens = project_tokens[0][1] if project_tokens else 1
+        bar_width = 20
+
+        for project_name, tokens in project_tokens[:15]:
+            pct = tokens / max_tokens if max_tokens > 0 else 0
+            bar_filled = int(pct * bar_width)
+            bar = "█" * bar_filled + "░" * (bar_width - bar_filled)
+            lines.append(f"[cyan]{bar}[/] {project_name[:20]:<20} {format_tokens(tokens):>10}")
+
+        if len(project_tokens) > 15:
+            lines.append(f"[dim]... and {len(project_tokens) - 15} more projects[/]")
+
+        content.update("\n".join(lines))
 
     def on_select_changed(self, event: Select.Changed) -> None:
         if event.select.id == "sort-select":
@@ -1031,10 +1161,8 @@ class DashboardScreen(Screen):
             self._refresh_projects_table()
 
     def on_data_table_row_highlighted(self, event: DataTable.RowHighlighted) -> None:
-        """Handle row selection in sessions or favorites table to show prompts."""
+        """Handle row selection in tables to show details."""
         table_id = event.data_table.id
-        if table_id not in ("sessions-table", "favorites-table"):
-            return
 
         row_key = event.row_key
         if row_key is None:
@@ -1042,6 +1170,16 @@ class DashboardScreen(Screen):
 
         try:
             row_idx = event.cursor_row
+
+            if table_id == "activity-dates-table":
+                selected_date = self._activity_date_row_map.get(row_idx)
+                if selected_date:
+                    self._update_activity_projects_panel(selected_date)
+                return
+
+            if table_id not in ("sessions-table", "favorites-table"):
+                return
+
             if table_id == "sessions-table":
                 session = self._session_row_map.get(row_idx)
                 if session:
@@ -1508,6 +1646,62 @@ class FactoryDashboardApp(App):
 
     #settings-status {
         padding-top: 1;
+    }
+
+    .activity-explorer {
+        height: auto;
+        min-height: 15;
+        margin: 1 0;
+    }
+
+    .activity-dates-panel {
+        width: 1fr;
+        height: auto;
+        min-height: 15;
+    }
+
+    .activity-dates-header {
+        height: auto;
+        padding: 0 1;
+    }
+
+    .activity-dates-container {
+        height: auto;
+        max-height: 20;
+    }
+
+    #activity-dates-table {
+        height: auto;
+        max-height: 18;
+    }
+
+    .activity-projects-panel {
+        width: 2fr;
+        height: auto;
+        min-height: 15;
+        border-left: solid $primary;
+        padding: 0 1;
+    }
+
+    .activity-projects-header {
+        height: auto;
+        padding: 1;
+        background: $primary-background;
+    }
+
+    .activity-projects-info {
+        height: auto;
+        padding: 0 1;
+        margin-bottom: 1;
+    }
+
+    .activity-projects-container {
+        height: auto;
+        max-height: 15;
+    }
+
+    #activity-projects-content {
+        padding: 0 1;
     }
     """
 

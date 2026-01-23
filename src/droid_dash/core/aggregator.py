@@ -235,3 +235,45 @@ class SessionAggregator:
             ]
 
         return result
+
+    def get_daily_totals(self) -> tuple[dict[date, int], dict[date, int]]:
+        """Get daily token totals and active time totals.
+
+        Returns:
+            Tuple of (daily_tokens, daily_time_ms) dictionaries.
+        """
+        daily_tokens: dict[date, int] = defaultdict(int)
+        daily_time: dict[date, int] = defaultdict(int)
+
+        for session in self.sessions:
+            if session.timestamp:
+                d = session.timestamp.date()
+                daily_tokens[d] += session.tokens.total_tokens
+                daily_time[d] += session.active_time_ms
+
+        return dict(daily_tokens), dict(daily_time)
+
+    def get_daily_tokens_by_project(self, day: date) -> list[tuple[str, int]]:
+        """Get token usage for a specific day grouped by project.
+
+        Args:
+            day: The date to get stats for.
+
+        Returns:
+            List of (project_name, tokens) tuples sorted by tokens descending.
+        """
+        project_tokens: dict[str, int] = defaultdict(int)
+
+        for session in self.sessions:
+            if session.timestamp and session.timestamp.date() == day:
+                project_tokens[session.project_name] += session.tokens.total_tokens
+
+        return sorted(project_tokens.items(), key=lambda x: x[1], reverse=True)
+
+    def get_dates_with_activity(self) -> list[date]:
+        """Get list of dates that have session activity, sorted descending."""
+        dates = set()
+        for session in self.sessions:
+            if session.timestamp:
+                dates.add(session.timestamp.date())
+        return sorted(dates, reverse=True)
