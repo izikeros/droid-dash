@@ -30,7 +30,14 @@ from ..core import SessionAggregator, SessionParser
 from ..core.config import Config, get_config_path_display, load_config, save_config
 from ..core.cost import CostEstimator, format_cost
 from ..core.models import DashboardStats, Session
-from .widgets import ActivityHeatmap, DailyBarChart, ShareBar, StatsPanel, TokenBar
+from .widgets import (
+    ActivityHeatmap,
+    DailyBarChart,
+    ProjectsHeatmap,
+    ShareBar,
+    StatsPanel,
+    TokenBar,
+)
 from .widgets.stats_panel import format_duration, format_tokens
 
 SORT_OPTIONS = [
@@ -241,8 +248,9 @@ class DashboardScreen(Screen):
         Binding("3", "switch_tab('projects')", "Projects", show=False),
         Binding("4", "switch_tab('sessions')", "Sessions", show=False),
         Binding("5", "switch_tab('activity')", "Activity", show=False),
-        Binding("6", "switch_tab('favorites')", "Favorites", show=False),
-        Binding("7", "switch_tab('settings')", "Settings", show=False),
+        Binding("6", "switch_tab('projects-heatmap')", "Heatmap", show=False),
+        Binding("7", "switch_tab('favorites')", "Favorites", show=False),
+        Binding("8", "switch_tab('settings')", "Settings", show=False),
         Binding("e", "edit_title", "Edit", show=True),
         Binding("f", "toggle_favorite", "Fav", show=True),
         Binding("c", "connect_session", "Connect", show=True),
@@ -454,6 +462,8 @@ class DashboardScreen(Screen):
                 yield from self._compose_sessions()
             with TabPane("My Activity", id="activity"):
                 yield from self._compose_activity()
+            with TabPane("Projects Heatmap", id="projects-heatmap"):
+                yield from self._compose_projects_heatmap()
             with TabPane("Favorites", id="favorites"):
                 yield from self._compose_favorites()
             with TabPane("Settings", id="settings"):
@@ -718,6 +728,19 @@ class DashboardScreen(Screen):
                     )
                     with ScrollableContainer(classes="activity-projects-container"):
                         yield Static("", id="activity-projects-content")
+
+    def _compose_projects_heatmap(self) -> ComposeResult:
+        """Compose the Projects Heatmap tab."""
+        aggregator = SessionAggregator(self.stats.sessions)
+        project_daily = aggregator.get_project_daily_tokens()
+
+        with ScrollableContainer():
+            yield ProjectsHeatmap(
+                project_daily,
+                days=60,
+                max_projects=15,
+                title="Projects Heatmap (Last 60 Days)",
+            )
 
     def _compose_favorites(self) -> ComposeResult:
         """Compose the favorites tab showing only favorite sessions."""

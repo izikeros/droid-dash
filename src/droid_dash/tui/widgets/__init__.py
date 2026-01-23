@@ -2,8 +2,16 @@
 
 from .daily_bar import DailyBarChart
 from .heatmap import ActivityHeatmap
+from .projects_heatmap import ProjectsHeatmap
 from .share_bar import ShareBar
 from .stats_panel import StatsPanel
 from .token_bar import TokenBar
 
-__all__ = ["ActivityHeatmap", "DailyBarChart", "ShareBar", "StatsPanel", "TokenBar"]
+__all__ = [
+    "ActivityHeatmap",
+    "DailyBarChart",
+    "ProjectsHeatmap",
+    "ShareBar",
+    "StatsPanel",
+    "TokenBar",
+]

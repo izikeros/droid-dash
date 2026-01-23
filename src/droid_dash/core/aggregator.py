@@ -277,3 +277,29 @@ class SessionAggregator:
             if session.timestamp:
                 dates.add(session.timestamp.date())
         return sorted(dates, reverse=True)
+
+    def get_project_daily_tokens(self) -> dict[str, dict[date, int]]:
+        """Get daily token usage per project.
+
+        Returns:
+            Dict mapping project_name -> {date -> tokens}, with projects sorted
+            by total tokens descending.
+        """
+        by_project: dict[str, dict[date, int]] = defaultdict(lambda: defaultdict(int))
+
+        for session in self.sessions:
+            if session.timestamp:
+                d = session.timestamp.date()
+                by_project[session.project_name][d] += session.tokens.total_tokens
+
+        # Sort projects by total tokens desc, preserving order in returned dict
+        totals = {
+            proj: sum(day_map.values())
+            for proj, day_map in by_project.items()
+        }
+        sorted_projects = sorted(totals.keys(), key=lambda p: totals[p], reverse=True)
+
+        result: dict[str, dict[date, int]] = {}
+        for proj in sorted_projects:
+            result[proj] = dict(by_project[proj])
+        return result
