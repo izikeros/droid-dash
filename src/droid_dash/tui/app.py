@@ -1171,9 +1171,7 @@ class DashboardScreen(Screen):
         return sessions
 
     def _is_empty_session(self, session: Session) -> bool:
-        """Check if session is empty (new session with no activity)."""
-        if session.title in ("New Session", "Untitled Session"):
-            return True
+        """Check if session is empty (no user prompts)."""
         return session.user_prompt_count == 0
 
     def _filter_sessions(self, sessions: list[Session]) -> list[Session]:
