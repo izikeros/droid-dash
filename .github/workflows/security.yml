@@ -29,10 +29,8 @@ jobs:
           uv run bandit -r src/ -f json -o bandit-report.json
         continue-on-error: true
 
-      - name: Run safety check
-        run: |
-          uv pip install safety
-          uv run safety scan
+      - name: Run pip-audit check
+        run: uv run pip-audit
         continue-on-error: true
 
       - name: Upload security reports
