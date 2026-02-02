@@ -80,11 +80,17 @@ bandit: ## Run security linter.
 
 docs: ## Build documentation with mkdocs.
 	@echo -e "$(COLOR_CYAN)Building documentation...$(COLOR_RESET)"
+	uv sync --group docs
 	$(VENV)/mkdocs build
 
 docs-serve: ## Serve documentation locally.
 	@echo -e "$(COLOR_CYAN)Serving documentation at http://127.0.0.1:8000...$(COLOR_RESET)"
+	uv sync --group docs
 	$(VENV)/mkdocs serve
+
+commit: ## Interactive conventional commit.
+	@echo -e "$(COLOR_CYAN)Creating conventional commit...$(COLOR_RESET)"
+	$(VENV)/cz commit
 
 build: ## Build the package.
 	@echo -e "$(COLOR_CYAN)Building package...$(COLOR_RESET)"
